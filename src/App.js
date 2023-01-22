@@ -3,7 +3,7 @@ import Footer from './components/Footer'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 import About from './components/About'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import {HashRouter, Routes, Route} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 function App() {
@@ -83,7 +83,7 @@ const data = await res.json()
   setTasks(tasks.map((task) => task.id === id ? { ...task, reminder: data.reminder} : task))
 }
   return (
-    <Router>
+    <HashRouter>
     <div className="container">
       <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
       <Routes>
@@ -95,7 +95,7 @@ const data = await res.json()
       </Routes>
       <Footer />
     </div>
-    </Router>
+    </HashRouter>
   );
 }
 
